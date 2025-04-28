@@ -24,12 +24,9 @@ kotlin {
             baseName = "shared"
             isStatic = true
         }
-        jvm("desktop")
     }
 
     sourceSets {
-        val desktopTest by getting
-
         commonMain.dependencies {
             implementation(projects.data.local)
             implementation(projects.data.datastore)
@@ -77,10 +74,7 @@ kotlin {
             implementation(libs.kotlinx.datetime)
         }
 
-        desktopTest.dependencies {
-            implementation(compose.desktop.currentOs)
-            implementation(libs.kotlinx.coroutines.swing)
-        }
+
     }
 
     androidTarget {
