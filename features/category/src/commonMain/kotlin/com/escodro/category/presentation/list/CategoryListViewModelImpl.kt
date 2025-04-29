@@ -7,11 +7,15 @@ import com.escodro.domain.usecase.category.LoadAllCategories
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
+import mu.KotlinLogging
 
 internal class CategoryListViewModelImpl(
     private val loadAllCategories: LoadAllCategories,
     private val categoryMapper: CategoryMapper,
 ) : CategoryListViewModel() {
+
+    private val logger = KotlinLogging.logger {}
+
 
     override fun loadCategories(): Flow<CategoryState> = flow {
         loadAllCategories().collect { categoryList ->

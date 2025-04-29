@@ -11,7 +11,6 @@ kotlin {
     setFrameworkBaseName("local")
 
     sourceSets {
-        val desktopMain by getting
 
         commonMain.dependencies {
             implementation(projects.libraries.coroutines)
@@ -37,13 +36,9 @@ kotlin {
 
         commonTest.dependencies {
             implementation(kotlin("test"))
-            implementation(libs.kotlinx.coroutines.test)
+
         }
 
-        desktopMain.dependencies {
-            implementation(libs.sqldelight.jvm)
-            implementation(libs.multiplatform.path)
-        }
     }
 }
 

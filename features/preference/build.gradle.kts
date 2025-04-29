@@ -10,7 +10,6 @@ kotlin {
     setFrameworkBaseName("preference")
 
     sourceSets {
-        val desktopMain by getting
 
         commonMain.dependencies {
             implementation(projects.domain)
@@ -38,9 +37,7 @@ kotlin {
             implementation(projects.features.tracker)
         }
 
-        desktopMain.dependencies {
-            implementation(projects.features.tracker)
-        }
+
     }
 }
 android {

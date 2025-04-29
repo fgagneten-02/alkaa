@@ -56,6 +56,7 @@ import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.koinInject
 import kotlin.math.max
 import kotlin.math.roundToInt
+import mu.KotlinLogging
 
 /**
  * Alkaa Category List Section.
@@ -94,6 +95,8 @@ private fun CategoryListLoader(
     )
 }
 
+
+
 @Composable
 private fun CategoryListScaffold(
     viewState: CategoryState,
@@ -101,6 +104,10 @@ private fun CategoryListScaffold(
     onAddClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+
+
+
+
     BoxWithConstraints {
         val fabPosition = if (this.maxHeight > maxWidth) FabPosition.Center else FabPosition.End
         Scaffold(

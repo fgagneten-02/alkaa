@@ -83,6 +83,7 @@ private fun HomeLoader(
     )
 }
 
+
 @Composable
 private fun AlkaaHomeScaffold(
     appState: AppState,

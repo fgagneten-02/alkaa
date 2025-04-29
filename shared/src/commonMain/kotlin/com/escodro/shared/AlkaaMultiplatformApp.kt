@@ -5,13 +5,21 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
 import com.escodro.appstate.AppState
 import com.escodro.appstate.rememberAlkaaAppState
 import com.escodro.designsystem.AlkaaTheme
-import com.escodro.home.presentation.Home
 import com.escodro.shared.model.AppThemeOptions
 import org.koin.compose.koinInject
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBars
+
+expect fun provideResult() : Double
 
 @Composable
 fun AlkaaMultiplatformApp(
@@ -20,9 +28,22 @@ fun AlkaaMultiplatformApp(
 ) {
     AlkaaTheme(isDarkTheme = rememberIsDarkTheme()) {
         Home(
-            appState = appState,
-            modifier = modifier,
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(
+                    WindowInsets.systemBars
+                        .asPaddingValues()
+                )
         )
+    }
+}
+
+@Composable
+fun Home(
+    modifier: Modifier
+) {
+    Column(modifier = modifier) {
+        Text(text = provideResult().toString())
     }
 }
 

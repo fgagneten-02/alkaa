@@ -8,20 +8,16 @@ kotlin {
     setFrameworkBaseName("test")
 
     sourceSets {
-        val desktopMain by getting
 
         commonMain.dependencies {
             implementation(kotlin("test"))
-            api(libs.kotlinx.coroutines.test)
         }
 
         androidMain.dependencies {
             implementation(kotlin("test-junit"))
         }
 
-        desktopMain.dependencies {
-            implementation(kotlin("test-junit"))
-        }
+
 
     }
 

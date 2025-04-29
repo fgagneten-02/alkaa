@@ -19,10 +19,17 @@ kotlin {
         iosX64(),
         iosArm64(),
         iosSimulatorArm64(),
-    ).forEach {
-        it.binaries.framework {
+    ).forEach { iosTarget ->
+
+        iosTarget.binaries.framework {
             baseName = "shared"
-            isStatic = true
+            isStatic = false
+            linkerOpts("-L${rootDir}/shared/native/ios","-ltinyexpr_ios_sim")
+        }
+        iosTarget.compilations["main"].cinterops.create("tinyexpr"){
+            definitionFile = file("nativeInterop/cinterop/tinyexpr.def")
+            // Header dir
+            includeDirs("native/include")
         }
     }
 

@@ -29,7 +29,6 @@ kotlin {
 
         commonTest.dependencies {
             implementation(kotlin("test"))
-            implementation(projects.libraries.test)
             implementation(libs.kotlinx.datetime)
         }
     }
